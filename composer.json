@@ -1,0 +1,5 @@
+{
+    "require": {
+        "defstudio/telegraph": "^1.41"
+    }
+}
