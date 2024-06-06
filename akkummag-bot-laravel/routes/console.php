@@ -17,3 +17,16 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('registerCommands', function () {
+    /** @var \DefStudio\Telegraph\Models\TelegraphBot $bot */
+    $bot = \DefStudio\Telegraph\Models\TelegraphBot::find(1);
+
+    dd($bot->registerCommands([
+        'start'=> 'Начать роботу с ботом АККУМ-МАГ',
+        'catalog'=> 'Открыть каталог товаров',
+        'map'=> 'Показать нашу локацию на карте города',
+        'questions'=> 'Частые вопросы',
+        'help'=> 'Помощь'
+    ])->send());
+});
