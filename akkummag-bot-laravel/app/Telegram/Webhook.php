@@ -6,7 +6,10 @@ use DefStudio\Telegraph\Handlers\WebhookHandler;
 use DefStudio\Telegraph\Keyboard\Keyboard;
 use DefStudio\Telegraph\Keyboard\Button;
 use DefStudio\Telegraph\Facades\Telegraph;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Stringable;
+
 
 class Webhook extends WebhookHandler
 {
@@ -37,6 +40,8 @@ class Webhook extends WebhookHandler
     }
     public function map():void{
         $this->chat->message("карта")->send();
+
+        Telegraph::photo(Storage::path(__DIR__.'/pictures/map.png'))->send();
     }
     public function questions():void{
         $this->chat->message("вопросы")->send();
